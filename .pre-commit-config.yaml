@@ -1,0 +1,60 @@
+fail_fast: true
+default_language_version:
+  python: python3.8
+
+repos:
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v2.3.0
+    hooks:
+    -   id: check-added-large-files
+    -   id: check-ast
+    -   id: check-case-conflict
+    -   id: check-docstring-first
+    -   id: check-json
+    -   id: check-merge-conflict
+    -   id: check-symlinks
+    -   id: check-toml
+    -   id: check-xml
+    -   id: check-yaml
+        args: [--allow-multiple-documents]
+
+    -   id: debug-statements
+    -   id: end-of-file-fixer
+    -   id: fix-encoding-pragma
+        args: [--remove]
+
+    -   id: forbid-new-submodules
+    -   id: mixed-line-ending
+    -   id: no-commit-to-branch
+        args: [-b, master, -b staging, -b main, -b dev, -b devel, -b develop]
+
+    -   id: pretty-format-json
+        args: [--autofix, --no-sort-keys, --indent=4]
+
+    -   id: requirements-txt-fixer
+    -   id: trailing-whitespace
+
+-   repo: https://github.com/psf/black
+    rev: 21.12b0
+    hooks:
+    -   id: black
+
+-   repo: https://github.com/pre-commit/mirrors-autopep8
+    rev: v1.6.0
+    hooks:
+    -   id: autopep8
+
+-   repo: https://github.com/pre-commit/mirrors-mypy
+    rev: 'v0.931'
+    hooks:
+    -   id: mypy
+
+-   repo: https://github.com/pre-commit/pygrep-hooks
+    rev: v1.9.0
+    hooks:
+    -   id: python-no-eval
+    -   id: python-no-log-warn
+    -   id: python-use-type-annotations
+    -   id: rst-backticks
+    -   id: rst-directive-colons
+    -   id: rst-inline-touching-normal
